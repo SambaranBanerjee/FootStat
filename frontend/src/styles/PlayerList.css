@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+
+.player-list-container {
+  padding: 40px;
+  min-height: 100vh;
+  background-color: #0f0f13; /* Dark background similar to image context */
+  color: white;
+  font-family: 'Oswald', sans-serif; /* Gaming style font */
+}
+
+/* --- FILTERS --- */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.player-controls select {
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #1a1a20;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* --- GRID LAYOUT --- */
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
+  justify-items: center;
+}
+
+/* --- CARD CONTAINER (PERSPECTIVE) --- */
+.player-card {
+  width: 240px;
+  height: 340px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.player-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* --- COMMON CARD SHAPE --- */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* The Shield Shape */
+  clip-path: polygon(
+    0% 5%,      /* Top Left corner cut */
+    5% 0%,      
+    95% 0%,     /* Top Right */
+    100% 5%,
+    100% 80%,   /* Start of bottom curve */
+    50% 100%,   /* Bottom Tip */
+    0% 80%      /* End of bottom curve */
+  );
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border: 2px solid rgba(255,215,0, 0.3); /* Subtle gold border */
+}
+
+.card-back h3 {
+    font-size: x-large;
+    margin-bottom: 0;
+}
+
+/* --- CARD FRONT DESIGN --- */
+.card-front {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  color: #fff;
+}
+
+/* --- BACKGROUND VARIANTS --- */
+/* Red Variant */
+.player-card.red .card-front {
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(to bottom, #7a1e1e, #290505);
+  border-color: #e33434;
+}
+
+/* Green Variant */
+.player-card.green .card-front {
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(to bottom, #1e7a36, #052912);
+  border-color: #4ce334;
+}
+
+/* Gold/Base Variant */
+.player-card.gold .card-front {
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(to bottom, #bfa64c, #4a3f12);
+  border-color: #ffd700;
+}
+
+/* TOP SECTION: RATING & IMAGE */
+.card-top {
+  display: flex;
+  height: 45%;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-info {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  text-align: center;
+  width: 40px;
+}
+
+.card-rating {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.card-position {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+}
+
+.card-nation {
+  font-size: 1.2rem;
+  margin-top: 2px;
+}
+
+.card-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* Push image to right */
+  align-items: flex-end;
+}
+
+.card-image-container img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  /* Mask the bottom of the image slightly to blend */
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* MIDDLE SECTION: NAME */
+.card-name-section {
+  text-align: center;
+  margin: 5px 0 10px 0;
+}
+
+.card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 1px 1px 2px black;
+}
+
+.card-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+  margin-top: 5px;
+}
+
+/* BOTTOM SECTION: STATS GRID */
+.card-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 5px;
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* --- CARD BACK --- */
+.card-back {
+  background: #111;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #444;
+  padding: 20px;
+  
+  /* Matches the shape of the front */
+  clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 80%, 50% 100%, 0% 80%);
+}
+
+.back-details {
+  text-align: left;
+  margin: 7px 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.view-profile-btn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #ffd700;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
