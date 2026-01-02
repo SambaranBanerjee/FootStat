@@ -1,0 +1,230 @@
+:root {
+  --primary-green: rgb(121, 181, 2);
+  --bg-dark: rgb(13, 16, 28);
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --text-muted: #a0a0a0;
+}
+
+.profile-container {
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-content {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- COMMON STYLES --- */
+.career-section,
+.attributes-section {
+  background-color: var(--bg-card);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.section-header {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- LEFT SECTION: CAREER --- */
+.career-section {
+  flex: 2; /* Takes up 2/3 space */
+}
+
+/* Filters */
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filters-row.secondary {
+  margin-bottom: 25px;
+}
+
+.dropdown {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pill-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 4px 4px 4px 12px;
+  margin-right: 10px;
+}
+
+.pill-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+.pill-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* Tabs */
+.stats-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.tab.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Table */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.career-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.career-table th {
+  text-align: left;
+  padding: 15px 10px;
+  color: var(--text-muted);
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.career-table td {
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.year-col {
+  color: var(--text-muted);
+}
+
+.team-col img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* Rating Badge */
+.rating-badge {
+  background-color: var(--primary-green);
+  color: var(--bg-dark);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* --- RIGHT SECTION: ATTRIBUTES --- */
+.attributes-section {
+  flex: 1; /* Takes up 1/3 space */
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Compare Search */
+.compare-section {
+  margin-top: auto;
+}
+
+.compare-section label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.compare-section input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.compare-section input:focus {
+  border-color: var(--primary-green);
+}
+
+.chart-footer {
+  margin-top: 15px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .profile-content {
+    flex-direction: column;
+  }
+  
+  .career-section, .attributes-section {
+    width: 100%;
+  }
+}

@@ -4,44 +4,47 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 
+// Pages
 import Home from "./pages/Home";
+import PlayerList from "./pages/Players/PlayerList";
+// import PlayerProfile from "./pages/Players/PlayerProfile";
 // import Login from "./pages/Auth/Login";
 // import Signup from "./pages/Auth/Signup";
-// import Players from "./pages/Players/PlayerList";
 
 const App = () => {
   /**
-   * TEMPORARY STATE
+   * TEMPORARY AUTH STATE
    * Later this will come from AuthContext
-   * Example:
-   * const { isAuthenticated, loading } = useAuth();
    */
   const isAuthenticated = false;
   const loading = false;
 
+  // Future: show loader while checking auth
+  // if (loading) return <Loader />;
+
   if (loading) {
-    // Optional: show loader during auth check
-    // return <Loader />;
+    //Later
   }
 
   return (
     <BrowserRouter>
-      {/* Navbar is global */}
+      {/* Global Navbar */}
       <Navbar isAuthenticated={isAuthenticated} />
 
-      {/* Main Content */}
+      {/* App Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/*
-        Future routes
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/players" element={<Players />} />
-        */}
+        {/* Public / Auth Routes */}
+        {/* <Route path="/login" element={<Login />} /> */}
+        {/* <Route path="/signup" element={<Signup />} /> */}
+
+        {/* Player Routes */}
+        <Route path="/players" element={<PlayerList />} />
+        {/* <Route path="/players/:id" element={<PlayerProfile />} /> */}
       </Routes>
 
-      {/* Footer is global */}
+      {/* Global Footer */}
       <Footer />
     </BrowserRouter>
   );
