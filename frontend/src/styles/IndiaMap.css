@@ -1,0 +1,99 @@
+.india-map-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.india-map {
+  width: 100%;
+  height: auto;
+}
+
+.india-svg {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+}
+
+.india-svg .state {
+  fill: rgb(13, 16, 28);
+  stroke: rgb(121, 181, 2);
+  stroke-width: 1.2;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.india-svg .state:hover {
+  fill: rgba(121, 181, 2, 0.6);
+}
+
+
+/* Player dots */
+.player-dot {
+  fill: white;
+  opacity: 0;
+  animation: popIn 2s ease forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+/* Dot animation (village → city feel) */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.map-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.map-info h3 {
+  color: rgb(121, 181, 2);
+  margin-bottom: 10px;
+}
+
+.map-info p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .india-map-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.state-dot {
+  fill: white;
+  opacity: 0;
+  animation: emerge 2s ease forwards;
+}
+
+@keyframes emerge {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

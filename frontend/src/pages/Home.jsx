@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Home.css";
+import IndiaMap from "../components/map/IndiaMap";
 
 const Home = () => {
   return (
@@ -44,6 +45,11 @@ const Home = () => {
             deserving players with funding and scholarships.
           </p>
         </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="map-section">
+        <IndiaMap/>
       </section>
 
       {/* Call To Action */}
