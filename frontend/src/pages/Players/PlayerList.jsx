@@ -23,8 +23,8 @@ const dummyPlayers = [
   },
   {
     id: 2,
-    name: "RAHUL SINGH",
-    location: "Delhi",
+    name: "CHUNI GOSWAMI",
+    location: "Kolkata",
     image: "/assets/players/player2.jpg",
     overall: 90,
     position: "CM",
